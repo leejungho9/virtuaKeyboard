@@ -1,0 +1,42 @@
+
+
+.menu {
+    display: flex
+}
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+display: none;
+    
+}
+.slider {
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+    background-color: gray;
+    position: absolute;
+    border-radius: 25px;
+}
+
+.slider::before {
+    position: absolute;
+    content : "";
+    height: 23px;
+    width: 23px;
+    left: 4px;
+    top:5px;
+    background-color: white;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+}
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
