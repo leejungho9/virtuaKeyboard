@@ -1,6 +1,7 @@
 export class Keyboard {
   //해시 : class 안에서 선언하면 이 변수 값은 private 값이 되어 클래스 밖에서 값을 조회하거나 덮어쓸수 없음
   #switchEl;
+  #fontSelectEl;
   constructor() {
     this.#assignElement();
     this.#addEvent();
@@ -8,7 +9,7 @@ export class Keyboard {
 
   #assignElement() {
     this.#switchEl = document.getElementById("switch");
-    console.log(this.#switchEl);
+    this.#fontSelectEl = document.getElementById("font");
   }
 
   #addEvent() {
@@ -17,7 +18,9 @@ export class Keyboard {
         "theme",
         event.target.checked ? "dark-mode" : ""
       );
-      console.log(event.target.checked);
+    });
+    this.#fontSelectEl.addEventListener("change", (event) => {
+      document.body.style.fontFamily = event.target.value;
     });
   }
 }
